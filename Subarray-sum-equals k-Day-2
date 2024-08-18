@@ -8,7 +8,7 @@ public:
         {
             sum=sum+n;
             count_ans = count_ans + m[sum-k]; // if sum-k appears in map we incerese count by the m[sum-k] th value time for example if sum-k =1 1:2(1 occuring 2 time in map) then we increse count by 2
-            m[sum]++;
+            m[sum]++; //if sum is prsernt increment its frequency
         }
         return count_ans;
     }
