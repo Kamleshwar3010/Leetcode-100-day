@@ -1,0 +1,22 @@
+//Usibg DNF
+class Solution {
+  public:
+  void swap(int & a,int & b){
+            int temp;
+            temp= a;
+            a=b;
+            b=temp;
+        }
+    void segregate0and1(vector<int> &arr) {
+      int low=0,mid=0;;
+        while(mid<=arr.size()-1){
+            if (arr[mid]==0){
+                swap(arr[mid],arr[low]);
+                low++,mid++;
+            }
+            else{
+                mid++;
+            }
+        }
+    }
+};
