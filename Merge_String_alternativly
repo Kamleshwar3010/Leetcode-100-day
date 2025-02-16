@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+/*Approch- Two Pointer
+ Time Complexcity- O(max(m,n)) where m,n is leangth of both the string respectivly
+ Space Complecxcity- O(m+n) size of merged array */
+
+string mergeAlternately(string word1, string word2)
+{
+    int i = 0, j = 0, k = 0;
+    string merged;
+    while (i < word1.size() || j < word2.size())
+    {
+        if (i < word1.size())
+        {
+            merged += word1[i++]; // concatinating string
+        }
+        if (j < word2.size())
+        {
+            merged += word2[j++];
+        }
+    }
+
+    return merged;
+}
+int main()
+{
+    string word1 = "abcdef";
+    string word2 = "pqrs";
+    cout << mergeAlternately(word1, word2);
+
+    return 0;
+}
+/*Optimised Approch
+ Time Complexcity- O(min(m,n)) where m,n is leangth of both the string respectivly
+ Space Complecxcity- O(m+n)  size of merged array */
+
+/* 
+ while (i < word1.size() && i < word2.size()) {
+            ans += word1[i];
+            ans += word2[i];
+            i++;
+        }
+        ans += word1.substr(i) + word2.substr(i);
+*/
