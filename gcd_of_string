@@ -1,0 +1,30 @@
+/*
+Intuition: if a substring is gcd of two string then it must be repeat itself to form other string, so first we check there is something common in both string or not. if there common repeating pattern in both subtring. if yes, then we find gcd of length of both substring because tht will be the max length possible for valid answer and we just extract substring of that length that will be our answer.
+
+
+# Complexity
+- Time complexity:O(logn + k)
+- where n= min(len(str1),len(str2))
+-       k= len(ans) to extracting substring
+-       log n= to find gcd
+
+- Space complexity:O(1)
+*/
+int findGCD(int a, int b) {
+    while (b != 0) {  // Using Euclidean algorithm
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+    string gcdOfStrings(string str1, string str2) {
+          if (str1 + str2 != str2 + str1) 
+        return "";
+
+    int len1 = str1.size();
+    int len2 = str2.size();
+    int gcdLength = findGCD(len1, len2); 
+
+    return str1.substr(0, gcdLength);
+    }
