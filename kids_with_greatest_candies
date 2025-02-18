@@ -1,0 +1,38 @@
+/*
+Brute Force Approch (optimal)
+Time Complexcity: O(n)
+Space Complexcity: O(n) for storing answer
+*/
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector <bool> v;
+        int max=candies[0];
+        for(int n: candies){
+            if (n>max){
+                max=n;
+            }
+        }
+        for(int n:candies){
+            if(n+extraCandies < max){
+                v.push_back(false);
+            }
+            else{
+                v.push_back(true);
+            }
+        }
+        return v;
+    }
+};
+/*
+Approch-2
+step 1- Sort the array
+step 2- use binary search
+        if current candies+extra candes is less than max candies
+               goto left
+        else
+            goto right
+
+Time Complexcity: O(nlogn+logn)
+Space Complexcity: O(n) for storing answer
+            */
