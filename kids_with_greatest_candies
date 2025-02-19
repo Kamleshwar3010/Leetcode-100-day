@@ -1,5 +1,6 @@
 /*
-Brute Force Approch (optimal)
+Greedy
+- assign max candies possible
 Time Complexcity: O(n)
 Space Complexcity: O(n) for storing answer
 */
