@@ -2,7 +2,8 @@
 we need 3 consecutive zero to plant one flower (except in corner cases) so we count consecutive zero if there are 3 consecutive zero then we reduce n by 1
 
 Approach
-Brute Force
+Greedy
+Places flowers greedily when possible (checking neighbors)
 
 Complexity
 Time complexity:O(n)
