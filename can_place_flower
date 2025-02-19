@@ -1,0 +1,65 @@
+/* Intuition
+we need 3 consecutive zero to plant one flower (except in corner cases) so we count consecutive zero if there are 3 consecutive zero then we reduce n by 1
+
+Approach
+Brute Force
+
+Complexity
+Time complexity:O(n)
+Space complexity:O(1)*/
+
+
+class Solution {
+public:
+    bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+        int countZero=0;
+/*Corner Case-1 When there are only one element*/
+        if(flowerbed.size()==1){
+            if(flowerbed[0]==0 && n==1){
+                return true;
+            }
+            else if(flowerbed[0]==1 && n==0){
+                return true;
+            }
+            else if(flowerbed[0]==0 && n==0){
+                return true;
+            }
+            else if(flowerbed[0]==1 && n==1){
+                return false;
+            }
+        }
+
+/*Corner Case-2 for starting and ending element*/
+        if(flowerbed.size()==n){
+            return false;
+        }
+        if(flowerbed[0]==0 && flowerbed[1]==0 && n != 0){
+            n--;
+        }
+        if(flowerbed.back()==0 && *(flowerbed.end()-2)==0 && n != 0){
+            n--;
+        }
+
+        for(int i=1; i<flowerbed.size()-1;i++){
+            if(flowerbed[i]==0){
+                countZero++;
+            }
+            else if(flowerbed[i]==1){
+                countZero=0;
+            }
+            if(countZero==3 and n >0){
+                n--;
+                countZero=1;
+            }
+
+        }
+
+       if(n == 0){
+        return true;
+       }
+       else{
+        return false;
+       }
+
+    }
+};
