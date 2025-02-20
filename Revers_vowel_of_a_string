@@ -1,0 +1,39 @@
+/*Approach
+Two-pointer Approch
+
+Complexity
+Time complexity:O(n)
+Space complexity:O(1)*/
+class Solution {
+public:
+    bool isVowel(char s){
+        if(s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u' || 
+        s == 'A' || s == 'E' || s == 'I' || s == 'O' || s == 'U' ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    string reverseVowels(string s) {
+        int i=0,j=s.size()-1;
+        while(i<j){
+            if(isVowel(s[i]) && isVowel(s[j])){
+            swap(s[i],s[j]);
+            i++;
+            j--;
+        }
+        else if(isVowel(s[i])== false && isVowel(s[j])== false){
+            i++;
+            j--;
+        }
+        else if(isVowel(s[i])== false){
+            i++;
+        }
+        else{
+            j--;
+        }
+        }
+        return s;
+    }
+};
