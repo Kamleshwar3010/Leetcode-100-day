@@ -1,0 +1,43 @@
+/*
+Intuition
+Count the character append the character and its count at end and remove charater from start.
+
+Approach
+Optimal
+
+Complexity
+Time complexity:O(n)
+Space complexity:O(1)
+*/
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+       int ind=chars.size();
+        int count = 1, i = 1;
+        for (i = 1; i < ind; i++) {
+            if (chars[i] == chars[i - 1]) {
+                count++;
+            } else {
+                if (count == 1) {
+                    chars.push_back(chars[i - 1]);
+                } else {
+                    chars.push_back(chars[i - 1]);
+                    string count_str = to_string(count);
+                    for (char c : count_str) {
+                        chars.push_back(c);
+                    }
+                }
+                count = 1;
+            }
+        }
+        chars.push_back(chars[i - 1]);
+        if (count > 1) {
+            string count_str = to_string(count);
+            for (char c : count_str) {
+                chars.push_back(c);
+            }
+        }
+        chars.erase(chars.begin(),chars.begin()+ind);
+        return chars.size();
+    }
+};
